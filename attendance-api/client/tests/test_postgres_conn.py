@@ -11,7 +11,7 @@ from client.postgres import DatabaseSDKFacade
 def mock_config_file(tmp_path):
     config_data = """
     postgres:
-        host: 172.31.19.160
+        host: 192.168.0.101v
         port: 5432
         user: postgres
         password: password
