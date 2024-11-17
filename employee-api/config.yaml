@@ -1,11 +1,11 @@
 scylladb:
-  host: ["172.31.19.160:9042"]
+  host: ["192.168.0.101:9042"]
   username: cassandra
   password: cassandra
   keyspace: employee_db
 
 redis:
   enabled: false
-  host: 172.31.19.160:6379
+  host: 192.168.0.101:6379
   password: password
   database: 0
