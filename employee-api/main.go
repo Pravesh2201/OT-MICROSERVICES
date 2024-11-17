@@ -49,8 +49,8 @@ func main() {
 	docs.SwaggerInfo.BasePath = "/api/v1/employee"
 	routes.CreateRouterForEmployee(v1)
 	// Swagger setup
-	url := ginSwagger.URL("http://15.206.213.8:8080/swagger/doc.json")
+	url := ginSwagger.URL("http://52.200.226.197:8081/swagger/doc.json")
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler, url))
 	// Start the server
-	router.Run(":8080")
+	router.Run(":8081")
 }
