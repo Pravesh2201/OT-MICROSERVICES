@@ -74,7 +74,7 @@ const FormikApp = withFormik({
   },
   handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
     console.log(JSON.stringify(values))
-    fetch('http://15.206.213.8:8081/api/v1/attendance/create', {
+    fetch('http://52.200.226.197:8081/api/v1/attendance/create', {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {
