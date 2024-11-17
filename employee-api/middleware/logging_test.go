@@ -13,7 +13,7 @@ func TestLoggingMiddleware(t *testing.T) {
 	router.Use(LoggingMiddleware())
 
 	req, _ := http.NewRequest("GET", "/example", nil)
-	req.Header.Set("X-Real-IP", "192.168.0.1")
+	req.Header.Set("X-Real-IP", "192.168.0.101")
 	w := httptest.NewRecorder()
 
 	router.ServeHTTP(w, req)
@@ -24,5 +24,5 @@ func TestLoggingMiddleware(t *testing.T) {
 	assert.Contains(t, w.Body.String(), expectedLogMessage)
 	assert.Contains(t, req.Method, "GET")
 	assert.Contains(t, req.URL.Path, "/example")
-	assert.Contains(t, "192.168.0.1", "192.168.0.1")
+	assert.Contains(t, "192.168.0.101", "192.168.0.101")
 }
