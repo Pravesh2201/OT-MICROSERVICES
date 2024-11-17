@@ -10,7 +10,7 @@ class ListEmployee extends React.Component {
 	}
 	
 	loadData() {
-		fetch("http://15.206.213.8:8080/api/v1/employee/search/all")
+		fetch("http://52.200.226.197:8082/api/v1/employee/search/all")
 			.then(response => response.json())
 			.then(data => {
 				this.setState({data: data })
