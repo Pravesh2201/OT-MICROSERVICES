@@ -9,7 +9,7 @@ def test_get_caching_data(mock_open):
     mock_file.__enter__.return_value = mock_file
     mock_file.read.return_value = """
     redis:
-        host: 172.31.19.160
+        host: 192.168.0.101
         port: 6379
         password: password
     """
@@ -21,9 +21,9 @@ def test_get_caching_data(mock_open):
 
     assert result == {
         "CACHE_TYPE": "redis",
-        "CACHE_REDIS_HOST": "172.31.19.160",
+        "CACHE_REDIS_HOST": "192.168.0.101",
         "CACHE_REDIS_PORT": 6379,
-        "CACHE_REDIS_URL": "redis://172.31.19.160:6379/0"
+        "CACHE_REDIS_URL": "redis://192.168.0.101:6379/0"
     }
 
     # mock_open.assert_called_once_with('config.yaml', 'r', encoding="utf-8")
@@ -38,7 +38,7 @@ def test_redis_status(mock_open):
     mock_file.__enter__.return_value = mock_file
     mock_file.read.return_value = """
     redis:
-        host: 172.31.19.160
+        host: 192.168.0.101
         port: 6379
         password: password
     """
