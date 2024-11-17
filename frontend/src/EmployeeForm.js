@@ -146,7 +146,7 @@ const FormikApp = withFormik({
     };
   },
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    fetch('http://52.200.226.197:8082/api/v1/employee/create', {
+    fetch('http://98.85.32.90:8082/api/v1/employee/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
