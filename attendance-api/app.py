@@ -14,7 +14,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 swagger = Swagger(app)
-CORS(app, resources={r"/*": {"origins": "http://15.206.213.8:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://52.200.226.197:3000"}})
 
 metrics = PrometheusMetrics(app)
 metrics.info("attendance_api", "Attendance API opentelemetry metrics", version="0.1.0")
