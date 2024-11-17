@@ -18,7 +18,7 @@ public class OpenAPIConfig {
   @Bean
   public OpenAPI myOpenAPI() {
     Server devServer = new Server();
-    devServer.setUrl("http://3.90.221.0:8080");
+    devServer.setUrl("http://98.85.32.90:8080");
     devServer.setDescription("Server URL in Development environment");
 
     Contact contact = new Contact();
