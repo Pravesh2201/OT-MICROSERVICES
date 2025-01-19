@@ -2,14 +2,14 @@
 spring:
   cassandra:
     keyspace-name: employee_db
-    contact-points: 192.168.0.101
+    contact-points: 172.31.5.137
     port: 9042
     username: scylladb
     password: password
     local-datacenter: datacenter1
   data:
     redis:
-      host: 192.168.0.101
+      host: 172.31.5.137
       port: 6379
       password: password
 
