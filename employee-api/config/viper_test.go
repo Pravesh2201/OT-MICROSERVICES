@@ -9,7 +9,7 @@ import (
 func TestReadConfigAndProperty(t *testing.T) {
 	expectedConfig := model.Config{
 		ScyllaDB: model.ScyllaDB{
-			Host:     []string{"192.168.0.101:9042"},
+			Host:     []string{"172.31.5.137:9042"},
 			Keyspace: "employee_db",
 			Username: "scylladb",
 			Password: "password",
