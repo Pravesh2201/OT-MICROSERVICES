@@ -7,7 +7,7 @@ import (
 )
 
 func TestCreateRedisClient(t *testing.T) {
-	expectedAddr := "192.168.0.101:6379"
+	expectedAddr := "172.31.5.137:6379"
 	expectedPassword := ""
 	expectedDB := 0
 
