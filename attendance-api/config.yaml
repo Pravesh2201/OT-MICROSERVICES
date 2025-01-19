@@ -1,12 +1,12 @@
 ---
 postgres:
   database: attendance_db
-  host: 192.168.0.101
+  host: 172.31.5.137
   port: 5432
   user: postgres
   password: password
 
 redis:
-  host: 192.168.0.101
+  host: 172.31.5.137
   port: 6379
   password: password
