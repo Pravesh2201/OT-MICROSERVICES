@@ -26,7 +26,7 @@ class OpenAPIConfigTest {
         // Verify the server details
         assertEquals(1, openAPI.getServers().size());
         Server server = openAPI.getServers().get(0);
-        assertEquals("http://98.85.32.90:8080", server.getUrl());
+        assertEquals("http://98.81.100.112:8080", server.getUrl());
         assertEquals("Server URL in Development environment", server.getDescription());
 
         // Verify the contact details
