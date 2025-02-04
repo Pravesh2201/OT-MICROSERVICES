@@ -3,7 +3,6 @@ import { Page, Grid } from "tabler-react";
 import SiteWrapper from "./SiteWrapper.react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { withFormik } from 'formik';
-
 const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, isSubmitting }) => {
   return (
     <SiteWrapper>
@@ -15,18 +14,18 @@ const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, i
           <FormGroup>
             {touched.id && errors.id && <p className="red">{errors.id}</p>}
             <Label for="id">Employee ID</Label>
-            <Input 
-              type="text" 
+            <Input
+              type="text"
               name="id"
               value={values.id}
               onChange={handleChange}
-              id="id" 
-              placeholder="Employee ID" 
+              id="id"
+              placeholder="Employee ID"
             />
           </FormGroup>
-	  <FormGroup>
+          <FormGroup>
             {touched.name && errors.name && <p className="red">{errors.name}</p>}
-            <Label for="name">Employee Name</Label>
+            <Label for="name">Name</Label>
             <Input
               type="text"
               name="name"
@@ -36,9 +35,6 @@ const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, i
               placeholder="Employee Name"
             />
           </FormGroup>
-
-
-
           <FormGroup>
             {touched.status && errors.status && <p className="red">{errors.status}</p>}
             <Label for="status">Status</Label>
@@ -48,7 +44,6 @@ const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, i
               <option>Absent</option>
             </Input>
           </FormGroup>
-
           <FormGroup>
             {touched.date && errors.date && <p className="red">{errors.date}</p>}
             <Label for="date">Date</Label>
@@ -57,7 +52,7 @@ const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, i
               name="date"
               id="date"
               placeholder="datetime placeholder"
-              value={values.date} 
+              value={values.date}
               onChange={handleChange}
             />
           </FormGroup>
@@ -67,14 +62,13 @@ const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, i
     </SiteWrapper>
   );
 }
-
 const FormikApp = withFormik({
   mapPropsToValues({ username, password }) {
     return { username, password }
   },
   handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
     console.log(JSON.stringify(values))
-    fetch('http://98.85.32.90:8081/api/v1/attendance/create', {
+    fetch('http://3.230.163.185:8080/api/v1/attendance/create', {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {
@@ -82,5 +76,4 @@ const FormikApp = withFormik({
     }})
   }
 })(AttendanceForm);
-
 export default FormikApp
