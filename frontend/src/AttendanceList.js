@@ -4,24 +4,24 @@ import SiteWrapper from "./SiteWrapper.react";
 //import { withTransaction } from '@elastic/apm-rum-react';
 
 class ListEmployee extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = { data: [] }
-	}
-	
-	loadData() {
-		fetch('http://98.85.32.90:8081/api/v1/attendance/search/all')
-			.then(response => response.json())
-			.then(data => {
-				this.setState({data: data })
-		})
-			.catch(err => console.error(this.props.url, err.toString()))
-	}
+        constructor(props) {
+                super(props)
+                this.state = { data: [] }
+        }
 
-	componentDidMount() {
-		this.loadData()
-	}
-	
+        loadData() {
+                fetch('http://3.230.163.185:8080/api/v1/attendance/search/all')
+                        .then(response => response.json())
+                        .then(data => {
+                                this.setState({data: data })
+                })
+                        .catch(err => console.error(this.props.url, err.toString()))
+        }
+
+        componentDidMount() {
+                this.loadData()
+        }
+
   render() {
       return (
           <SiteWrapper>
