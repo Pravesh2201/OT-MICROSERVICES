@@ -1,4 +1,4 @@
-import React from "react";
+import  * as React from "react";
 import { Page, Grid } from "tabler-react";
 import SiteWrapper from "./SiteWrapper.react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -7,8 +7,10 @@ import { withFormik } from 'formik';
 const EmployeeForm = ({ values, handleChange, handleSubmit, errors, touched, isSubmitting }) => {
   return (
     <SiteWrapper>
-      <Page.Card title="Employee Registration"></Page.Card>
-      <Grid.Col md={6} lg={6} className="align-self-center">
+      <Page.Card
+            title="Employee Registration"
+        ></Page.Card>
+        <Grid.Col md={6} lg={6} className="align-self-center">
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             {touched.id && errors.id && <p className="red">{errors.id}</p>}
@@ -125,51 +127,30 @@ const EmployeeForm = ({ values, handleChange, handleSubmit, errors, touched, isS
           </FormGroup>
           <Button color="primary" disabled={isSubmitting}>Submit</Button>
         </Form>
-      </Grid.Col>
+    </Grid.Col>
     </SiteWrapper>
   );
 }
 
 const FormikApp = withFormik({
-  mapPropsToValues() {
-    return {
-      id: '',
-      name: '',
-      address: '',
-      email: '',
-      phone_number: '',
-      annual_package: '',
-      job_role: '',
-      status: '',
-      location: '',
-      joining_date: '',
-    };
+  mapPropsToValues({ username, password }) {
+    return { username, password }
   },
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    fetch('http://98.85.32.90:8082/api/v1/employee/create', {
+  handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
+    fetch('http://employee-portal.teckwithpratham.click/api/v1/employee/create', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(values),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to create employee');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Employee created successfully:', data);
-        resetForm();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setErrors({ submit: error.message });
-      })
-      .finally(() => setSubmitting(false));
-  },
+      headers: {
+          'Content-Type': 'application/json'
+    }})
+    fetch('/notification/send', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+          'Content-Type': 'application/json'
+    }})
+    console.log(JSON.stringify(values))
+  }
 })(EmployeeForm);
 
-export default FormikApp;
-
+export default FormikApp
